@@ -22,7 +22,7 @@ class CreateFlatActivity : AppCompatActivity() {
         setContentView(R.layout.activity_container)
 
 //        initFragments()
-        
+        println("Lol")
     }
 
 //    private fun initFabs() {
