@@ -61,6 +61,15 @@ dependencies {
     //Carbon
     implementation 'tk.zielony:carbon:0.15.0.1'
 
+//    //Event Bus
+//    implementation 'org.greenrobot:eventbus:3.0.0'
+
+//    //Stepper Touch
+//    compile 'com.github.DanielMartinus:Stepper-Touch:0.6'
+
+    //Counter Widget
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

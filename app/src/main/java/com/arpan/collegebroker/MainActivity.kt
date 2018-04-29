@@ -60,11 +60,11 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-//        do {
-//            getPermissions()
-//
-//        } while (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
-//                        Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+        do {
+            getPermissions()
+
+        } while (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
+                        Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
 
         prefs = Prefs(this)
 
@@ -77,6 +77,9 @@ class MainActivity : AppCompatActivity() {
 
         buyButton.setOnClickListener {
             prefs!!.category = 2 //Buyer
+            val intent = Intent(this@MainActivity, CreateFlatActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
