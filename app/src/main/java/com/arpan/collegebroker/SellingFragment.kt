@@ -38,8 +38,8 @@ class SellingFragment : Fragment(), FlatRecyclerHelper.RecyclerItemTouchHelperLi
 
     private fun initRecyclerView() {
 
-        flats.add(Flat("Baner", "A lavish flat in Baner", 18000))
-        flats.add(Flat("Pashan", "Nice and big flat without power cut.", 20000))
+        flats.add(Flat("Baner", 0, description = "A lavish flat in Baner", price = 18000))
+        flats.add(Flat("Pashan", 0, description = "Nice and big flat without power cut.", price = 20000))
 
         adapter = FlatsAdapter(context, flats)
         flatsRecyclerView.adapter = adapter

@@ -1,6 +1,9 @@
 package com.arpan.collegebroker
 
-class Flat (val name: String = "",
+class Flat (var name: String = "",
+            var bhk: Int = -1,
+            var type: Int = 0,
             val description: String = "",
             val price: Int = 0,
-            val furnishing: Furnishing? = null)
+            var furnishing: Furnishing? = null) {
+}
