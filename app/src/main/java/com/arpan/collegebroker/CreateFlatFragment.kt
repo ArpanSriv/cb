@@ -96,8 +96,8 @@ class CreateFlatFragment : Fragment() {
     }
 
     private fun initFabs() {
-        uploadContactFab = activity?.findViewById(R.id.uploadContactFab)!!
-        uploadPhotoFab = activity?.findViewById(R.id.uploadPhotoFab)!!
+//        uploadContactFab = activity?.findViewById(R.id.uploadContactFab)!!
+//        uploadPhotoFab = activity?.findViewById(R.id.uploadPhotoFab)!!
         mainFab = activity?.findViewById(R.id.mainFab)!!
     }
 

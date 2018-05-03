@@ -13,4 +13,67 @@
 
     </style>
 
+    <style name="Widget" />
+
+    <style name="Widget.TextInputLayout">
+        <item name="android:layout_height">@dimen/wrap_content</item>
+        <item name="android:layout_width">@dimen/input_width</item>
+        <item name="android:textColorHint">@color/color_input_hint</item>
+    </style>
+
+    <style name="Widget.TextEdit">
+        <item name="android:layout_height">@dimen/match_parent</item>
+        <item name="android:layout_width">@dimen/match_parent</item>
+        <item name="android:textColorHighlight">@color/color_text_highlight</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColorHint">@color/color_input_hint</item>
+        <item name="android:background">@drawable/state</item>
+        <item name="android:textColor">@color/color_text</item>
+        <item name="android:padding">@dimen/text_padding</item>
+    </style>
+
+    <style name="Widget.Hint">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/color_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--Custom-->
+    <style name="MaterialLoginTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
+    <style name="MaterialLoginTheme.SelectableItemTheme">
+        <item name="colorControlHighlight">@color/material_login_register_color</item>
+    </style>
+    <style name="MaterialLoginTheme.SelectableItemBackground">
+        <item name="android:theme">@style/MaterialLoginTheme.SelectableItemTheme</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="MaterialLoginTheme.TextAppearanceRegister">
+        <item name="android:textColor">@color/material_login_login_color</item>
+        <item name="colorControlNormal">@color/material_login_login_color</item>
+        <item name="android:textColorHint">@color/material_login_login_color</item>
+        <item name="colorControlActivated">@color/material_login_login_color</item>
+        <item name="colorControlHighlight">@color/material_login_login_color</item>
+    </style>
+
+    <style name="MaterialLoginTheme.TextAppearanceLogin">
+        <item name="android:textColor">@color/material_login_register_color</item>
+        <item name="colorControlNormal">@color/material_login_register_color</item>
+        <item name="android:textColorHint">@color/material_login_register_color</item>
+        <item name="colorControlActivated">@color/material_login_register_color</item>
+        <item name="colorControlHighlight">@color/material_login_register_color</item>
+    </style>
+
+    <style name="MaterialLoginTheme.TextAppearanceLoginError" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/material_login_login_error_color</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MaterialLoginTheme.TextAppearanceRegisterError" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/material_login_register_error_color</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

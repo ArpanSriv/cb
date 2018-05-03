@@ -2,7 +2,6 @@ package com.arpan.collegebroker.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
-import android.util.SparseIntArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,7 @@ class FurnishingSelectorAdapter(val context: Context,
                                 private val itemsHashMap: HashMap<String, Int>)
     : RecyclerView.Adapter<FurnishingSelectorAdapter.FurnishingViewHolder>() {
 
-    private val furnishingCount = ArrayList<Int>(Collections.nCopies(itemsHashMap.size, 0))
+    val furnishingCountArray = ArrayList<Int>(Collections.nCopies(itemsHashMap.size, 0))
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FurnishingViewHolder {
         return FurnishingViewHolder(LayoutInflater.from(context).inflate(R.layout.item_furnishing, parent, false))
@@ -30,16 +29,18 @@ class FurnishingSelectorAdapter(val context: Context,
 
         init {
             itemView.counterPlusButton.setOnClickListener {
-                furnishingCount[adapterPosition]++
-                itemView.furnitureCountLabel.text = furnishingCount[adapterPosition].toString()
+                furnishingCountArray[adapterPosition]++
+                itemView.furnitureCountLabel.text = furnishingCountArray[adapterPosition].toString()
             }
 
             itemView.counterMinusButton.setOnClickListener {
-                if (furnishingCount[adapterPosition] > 0) {
-                    furnishingCount[adapterPosition]--
-                    itemView.furnitureCountLabel.text = furnishingCount[adapterPosition].toString()
+                if (furnishingCountArray[adapterPosition] > 0) {
+                    furnishingCountArray[adapterPosition]--
+                    itemView.furnitureCountLabel.text = furnishingCountArray[adapterPosition].toString()
                 }
             }
+
+            this.setIsRecyclable(false)
         }
 
         fun bindData(name: String, resourceId: Int) {

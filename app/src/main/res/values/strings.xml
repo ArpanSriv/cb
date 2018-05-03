@@ -9,4 +9,20 @@
     <string name="tv">TV</string>
     <string name="fridge">Refrigerator</string>
     <string name="washing_machine">Washing Machine</string>
+    <string name="logo_desc">College Broker Logo</string>
+    <string name="rent_a_flat">Rent</string>
+    <string name="logout">Log out</string>
+    <string name="list_a_flat">Create Listing</string>
+
+    //Login
+    <string name="sign_up_label">Sign Up</string>
+    <string name="log_in_label">Log In</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">Email</string>
+    <string name="confirm_hint">Confirm Password</string>
+    <string name="go">Login</string>
+    <string name="login">LOGIN</string>
+    <string name="name">Email Address</string>
+    <string name="password">Password</string>
 </resources>

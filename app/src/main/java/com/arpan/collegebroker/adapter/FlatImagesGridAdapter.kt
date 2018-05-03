@@ -1,4 +1,4 @@
-package com.arpan.collegebroker
+package com.arpan.collegebroker.adapter
 
 import android.app.AlertDialog
 import android.content.Context
@@ -6,18 +6,16 @@ import android.content.DialogInterface
 import android.net.Uri
 import android.os.Build
 import android.os.VibrationEffect
+import android.os.Vibrator
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
-import com.arpan.collegebroker.MyAppGlideModule
+import com.arpan.collegebroker.GlideApp
+import com.arpan.collegebroker.R
 import kotlinx.android.synthetic.main.item_image.view.*
-import android.os.Vibrator
 
-
-
-class FlatImageAdapter(val context: Context, val uris: ArrayList<Uri>): RecyclerView.Adapter<FlatImageAdapter.FlatImageViewHolder>() {
+class FlatImagesAdapter(val context: Context, val uris: ArrayList<Uri>): RecyclerView.Adapter<FlatImagesAdapter.FlatImageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlatImageViewHolder {
         return FlatImageViewHolder(LayoutInflater.from(context).inflate(R.layout.item_image, parent, false))
@@ -37,11 +35,11 @@ class FlatImageAdapter(val context: Context, val uris: ArrayList<Uri>): Recycler
         }
 
         fun bindImage(uri: Uri) {
-//            GlideApp
-//                    .with(context)
-//                    .load(uri)
-//                    .fitCenter()
-//                    .into(itemView.flatImageView)
+            GlideApp
+                    .with(context)
+                    .load(uri)
+                    .fitCenter()
+                    .into(itemView.galleryImage)
         }
 
         override fun onLongClick(v: View?): Boolean {
@@ -56,6 +54,7 @@ class FlatImageAdapter(val context: Context, val uris: ArrayList<Uri>): Recycler
                         uris.removeAt(adapterPosition)
                         notifyDataSetChanged()
                     })
+                    .setNegativeButton("NO", { _, _ -> })
                     .show()
             return true
         }

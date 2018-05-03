@@ -7,13 +7,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.arpan.collegebroker.CreateFlatActivity
 import com.arpan.collegebroker.FurnishingItems
 
 import com.arpan.collegebroker.R
 import com.arpan.collegebroker.adapter.FurnishingSelectorAdapter
 import kotlinx.android.synthetic.main.fragment_create_flat_furnishing.*
 
-class CreateFlatFurnishingFragment : Fragment() {
+class CreateFlatFurnishingFragment : Fragment(), CreateFlatActivity.SubmitCallbackListener {
 
     private lateinit var furnishingSelectorAdapter: FurnishingSelectorAdapter
 
@@ -26,4 +27,10 @@ class CreateFlatFurnishingFragment : Fragment() {
         furnishingSelectorRecyclerView.layoutManager = LinearLayoutManager(context)
         furnishingSelectorRecyclerView.adapter = furnishingSelectorAdapter
     }
+
+    override fun submitFlatDetails(progress: Int): Any {
+        return furnishingSelectorAdapter.furnishingCountArray
+    }
+
+    override fun getProgress() = 4
 }

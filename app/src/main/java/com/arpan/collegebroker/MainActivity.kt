@@ -10,6 +10,8 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.arpan.collegebroker.login.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DataSnapshot
@@ -24,6 +26,8 @@ class MainActivity : AppCompatActivity() {
 
     private var mLocationPermissionsGranted: Boolean = false
     private var mAccessPermissionGranted = false
+
+    private val mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +66,6 @@ class MainActivity : AppCompatActivity() {
 
         do {
             getPermissions()
-
         } while (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
 
@@ -80,6 +83,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, CreateFlatActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        if (mAuth.currentUser == null) {
+            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 

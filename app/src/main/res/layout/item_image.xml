@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<carbon.widget.FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/imageHolder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/transparent"
-    style="@style/carbon_CardView"
-    app:carbon_elevationShadowColor="@android:color/darker_gray"
-    app:carbon_cornerRadius="8dp"
-    >
+    android:background="@android:color/white"
+    android:padding="2dp">
 
-    <ImageView
-        android:scaleType="fitXY"
-        android:background="@android:color/transparent"
-        android:id="@+id/flatImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        />
+    <!--<RelativeLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
 
-</carbon.widget.FrameLayout>
+        <ImageView
+            android:id="@+id/galleryImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            />
+
+    <!--</RelativeLayout>-->
+</RelativeLayout>

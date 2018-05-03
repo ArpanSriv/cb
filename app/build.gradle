@@ -53,6 +53,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:15.0.0'
     implementation 'com.google.firebase:firebase-database:15.0.0'
 
+    //Butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    kapt 'com.jakewharton:butterknife-compiler:8.8.1'
+
     //Glide
     compile 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
@@ -60,6 +65,21 @@ dependencies {
 
     //Carbon
     implementation 'tk.zielony:carbon:0.15.0.1'
+//
+//    //Transitions Everywhere
+//    implementation "com.andkulikov:transitionseverywhere:1.7.9"
+//
+//    //Keyboard Visibility Event
+//    implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.1.0'
+//
+//    //Scrolling ImageView
+//    implementation 'com.github.Q42:AndroidScrollingImageView:1.2'
+//
+//    //Material Login
+//    implementation 'com.github.shem8:material-login:2.1.1'
+
+      //Circular Reveal
+      implementation 'com.hendraanggrian:reveallayout:0.5.3'
 
 //    //Event Bus
 //    implementation 'org.greenrobot:eventbus:3.0.0'
@@ -68,7 +88,10 @@ dependencies {
 //    compile 'com.github.DanielMartinus:Stepper-Touch:0.6'
 
     //Counter Widget
-    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+//    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+
+    //Fab Menu
+    implementation 'com.github.clans:fab:1.6.4'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
