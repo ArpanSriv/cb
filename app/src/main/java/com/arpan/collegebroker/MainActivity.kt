@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import com.arpan.collegebroker.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private var mAccessPermissionGranted = false
 
     private val mAuth = FirebaseAuth.getInstance()
+    private val mUsersFirebaseDatabaseReference = FirebaseDatabase.getInstance().reference.child("users")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                     sellButton.visibility = View.INVISIBLE
                     listLabel.visibility = View.INVISIBLE
                     mainActivityProgressBar.visibility = View.VISIBLE
-                    val snackbar = Snackbar.make(mainActivityRoot, "We will be online as soon as we find a connection.", Snackbar.LENGTH_INDEFINITE)
+                    val snackbar = Snackbar.make(mainActivityRoot, "Connecting...", Snackbar.LENGTH_INDEFINITE)
                     snackbar.view.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.error_color_material))
                     snackbar.show()
                 }
@@ -75,17 +77,42 @@ class MainActivity : AppCompatActivity() {
             prefs!!.category = 1 //Seller
             val intent = Intent(this@MainActivity, CreateFlatActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         buyButton.setOnClickListener {
             prefs!!.category = 2 //Buyer
-            val intent = Intent(this@MainActivity, CreateFlatActivity::class.java)
+            val intent = Intent(this@MainActivity, AllFlatsActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         if (mAuth.currentUser == null) {
+            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+            startActivity(intent)
+        } else {
+            val currentFirebaseUser = mAuth.currentUser
+            val user = User(
+                    email = currentFirebaseUser!!.email!!,
+                    uid = currentFirebaseUser.uid
+            )
+
+
+            mUsersFirebaseDatabaseReference.child(user.uid).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot?) {
+                    if (!dataSnapshot!!.exists()) {
+                        mUsersFirebaseDatabaseReference.child(user.uid).setValue(user)
+                    }
+                }
+
+                override fun onCancelled(p0: DatabaseError?) {
+                    Log.d("MainActivity", p0!!.message)
+                }
+            })
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (FirebaseAuth.getInstance().currentUser == null) {
             val intent = Intent(this@MainActivity, LoginActivity::class.java)
             startActivity(intent)
         }
@@ -114,9 +141,7 @@ class MainActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this.applicationContext,
                         Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             mAccessPermissionGranted = true
-        }
-
-        else {
+        } else {
             ActivityCompat.requestPermissions(this,
                     arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
                     111)

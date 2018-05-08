@@ -26,7 +26,7 @@ class ContactsAdapter(val context: Context, val contacts: ArrayList<Contact>): R
 
     inner class ContactViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-        fun bindData(name: String, number: String, picUri: Uri?) {
+        fun bindData(name: String, number: String, picUri: String?) {
             itemView.contactName_TextView.text = name
             itemView.contactNumber_TextView.text = number
 

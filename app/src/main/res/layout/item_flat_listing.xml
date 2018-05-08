@@ -1,79 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:orientation="vertical">-->
+
+<!--<RelativeLayout--><!--android:id="@+id/view_background"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:background="@color/bg_row_background">-->
+
+<!--<ImageView--><!--android:id="@+id/delete_icon"--><!--android:layout_width="@dimen/ic_delete"--><!--android:layout_height="@dimen/ic_delete"--><!--android:layout_alignParentRight="true"--><!--android:layout_centerVertical="true"--><!--android:layout_marginRight="10dp"--><!--android:src="@drawable/archive_24dp" />-->
+
+<!--<TextView--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_centerVertical="true"--><!--android:layout_marginRight="@dimen/padd_10"--><!--android:layout_toLeftOf="@id/delete_icon"--><!--android:text="@string/delete"--><!--android:textColor="#fff"--><!--android:textSize="13dp" />-->
+
+<!--</RelativeLayout>-->
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:id="@+id/view_foreground"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:background="@android:color/white"--><!--android:padding="10dp">-->
+
+<!--<ImageView--><!--android:src="@drawable/home_red"--><!--android:id="@+id/thumbnail"--><!--android:layout_width="@dimen/thumbnail"--><!--android:layout_height="@dimen/thumbnail"--><!--android:layout_marginRight="@dimen/activity_padding_horizontal"--><!--android:scaleType="centerCrop" />-->
+
+<!--<TextView--><!--android:text="Baner, Pune"--><!--android:id="@+id/name"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_toRightOf="@id/thumbnail"--><!--android:ellipsize="end"--><!--android:fontFamily="sans-serif-medium"--><!--android:maxLines="1"--><!--android:textColor="@color/item_name"--><!--android:textSize="17dp" />-->
+
+<!--<TextView--><!--android:text="Luxurious flat in Baner, Pune."--><!--android:id="@+id/description"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_below="@id/name"--><!--android:layout_marginTop="5dp"--><!--android:layout_toRightOf="@id/thumbnail"--><!--android:textColor="@color/description"--><!--android:textSize="12dp" />-->
+
+<!--<TextView--><!--android:text="Rs. 20000"--><!--android:id="@+id/price"--><!--android:layout_width="wrap_content"--><!--android:layout_height="wrap_content"--><!--android:layout_alignParentBottom="true"--><!--android:layout_toRightOf="@id/thumbnail"--><!--android:textColor="#ea3732"--><!--android:textStyle="bold" />-->
+
+<!--</RelativeLayout>&lt;!&ndash;</FrameLayout>&ndash;&gt;-->
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="96dp"
+    android:padding="10dp">
 
-    <RelativeLayout
-        android:id="@+id/view_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/bg_row_background">
+    <ImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="@dimen/thumbnail"
+        android:layout_height="@dimen/thumbnail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/delete_icon"
-            android:layout_width="@dimen/ic_delete"
-            android:layout_height="@dimen/ic_delete"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/ic_delete_white_24dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/padd_10"
-            android:layout_toLeftOf="@id/delete_icon"
-            android:text="@string/delete"
-            android:textColor="#fff"
-            android:textSize="13dp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/view_foreground"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:padding="10dp">
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:maxLength="18"
+        android:maxLines="1"
+        android:text="Baner, Pune"
+        android:textColor="@color/item_name"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/thumbnail"
+        app:layout_constraintStart_toEndOf="@+id/thumbnail"
+        app:layout_constraintTop_toTopOf="@+id/thumbnail"
+        app:layout_constraintVertical_bias="0" />
 
-        <ImageView
-            android:id="@+id/thumbnail"
-            android:layout_width="@dimen/thumbnail"
-            android:layout_height="@dimen/thumbnail"
-            android:layout_marginRight="@dimen/activity_padding_horizontal"
-            android:scaleType="centerCrop" />
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLength="25"
+        android:maxLines="1"
+        android:text="Luxurious flat in Baner, Pune."
+        android:textColor="@color/description"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/thumbnail"
-            android:ellipsize="end"
-            android:fontFamily="sans-serif-medium"
-            android:maxLines="1"
-            android:textColor="@color/item_name"
-            android:textSize="17dp" />
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="8dp"
+        android:layout_toRightOf="@id/thumbnail"
+        android:text="Rs. 20000"
+        android:textColor="#ea3732"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/name"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/name" />
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/name"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/thumbnail"
-            android:textColor="@color/description"
-            android:textSize="12dp" />
+    <ToggleButton
+        android:visibility="gone"
+        android:id="@+id/favToggleButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/fav_black"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@id/thumbnail"
-            android:textColor="#ea3732"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>

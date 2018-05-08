@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.createflat.CreateFlatDescriptionFragment"
+    android:background="@color/primaryColor"
+    android:padding="20dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/carbon_black">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/descriptionBox"
+            android:hint="Description"
+            android:text="Please provide a description of the flat. Also include your phone number in case you don't mind second years calling you :)"
+            android:gravity="top"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTint="@color/carbon_black"
+            android:backgroundTint="@color/primaryColor"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+</RelativeLayout>

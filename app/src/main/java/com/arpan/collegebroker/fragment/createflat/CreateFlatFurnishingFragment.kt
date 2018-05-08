@@ -23,14 +23,21 @@ class CreateFlatFurnishingFragment : Fragment(), CreateFlatActivity.SubmitCallba
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        ((activity) as CreateFlatActivity).submitCallbackListener = this
         furnishingSelectorAdapter = FurnishingSelectorAdapter(context!!, FurnishingItems)
         furnishingSelectorRecyclerView.layoutManager = LinearLayoutManager(context)
         furnishingSelectorRecyclerView.adapter = furnishingSelectorAdapter
     }
 
-    override fun submitFlatDetails(progress: Int): Any {
+    override fun submitFlatDetails(progress: Int): ArrayList<*> {
         return furnishingSelectorAdapter.furnishingCountArray
     }
 
     override fun getProgress() = 4
+
+    override fun reset() {
+        furnishingSelectorAdapter.reset()
+    }
+
+    override fun validateInputs() = furnishingSelectorAdapter.initialStateChanged
 }

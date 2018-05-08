@@ -64,6 +64,7 @@ class CreateFlatLocationFragment : Fragment(), CreateFlatActivity.SubmitCallback
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        ((activity) as CreateFlatActivity).submitCallbackListener = this
         mPlaceAutoCompleteAdapter = PlaceAutoCompleteAdapter(context, mGoogleApiClient, LAT_LNG_BOUNDS, null)
         locationAutocomplete.setAdapter(mPlaceAutoCompleteAdapter)
 
@@ -95,10 +96,10 @@ class CreateFlatLocationFragment : Fragment(), CreateFlatActivity.SubmitCallback
     }
 
     override fun submitFlatDetails(progress: Int): Any {
-        if (locationAutocomplete.text.toString() == "") {
-            return locationAutocomplete.text.toString()
-        }
-        return false
+//        if (locationAutocomplete.text.toString() == "") {
+        return locationAutocomplete.text.toString()
+//        }
+//        return false
     }
 
     override fun getProgress() = 3
@@ -202,4 +203,11 @@ class CreateFlatLocationFragment : Fragment(), CreateFlatActivity.SubmitCallback
 
         }
     }
+
+    override fun reset() {
+        map!!.clear()
+        locationAutocomplete.setText("")
+    }
+
+    override fun validateInputs() = locationAutocomplete.text.toString() != ""
 }

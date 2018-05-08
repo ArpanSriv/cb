@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryDarkColor"
+    android:background="@color/primaryColor"
     android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="SELECT FLAT SIZE"
+        android:textColor="@color/carbon_black_54"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
 
     <ImageButton
         android:id="@+id/onebhkButton"
@@ -14,28 +29,27 @@
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         android:src="@drawable/onebhk"
-        app:layout_constraintBottom_toTopOf="@+id/twobhkButton"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/threebhkButton"
+        app:layout_constraintEnd_toStartOf="@+id/twobhkButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.1"
-        app:layout_constraintVertical_chainStyle="spread"
-        />
+        app:layout_constraintVertical_chainStyle="spread" />
 
     <ImageButton
         android:id="@+id/twobhkButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
+        android:layout_marginBottom="8dp"
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         android:src="@drawable/twobhk"
-        app:layout_constraintBottom_toTopOf="@+id/threebhkButton"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/onebhkButton"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintBottom_toTopOf="@+id/onebhkLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/onebhkButton"
+        app:layout_constraintTop_toTopOf="@+id/onebhkButton" />
 
     <ImageButton
         android:id="@+id/threebhkButton"
@@ -44,11 +58,11 @@
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         android:src="@drawable/threebhk"
-        app:layout_constraintBottom_toTopOf="@+id/fourbhkButton"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/twobhkButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fourbhkButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/onebhkButton"
         app:layout_constraintVertical_bias="0.7" />
 
     <ImageButton
@@ -58,86 +72,70 @@
         android:background="@android:color/transparent"
         android:scaleType="fitXY"
         android:src="@drawable/fourbhk"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/threebhkButton"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintBottom_toBottomOf="@+id/threebhkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/threebhkButton"
+        app:layout_constraintTop_toTopOf="@+id/threebhkButton" />
 
     <TextView
         android:id="@+id/onebhkLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="1 BHK"
+        android:textColor="@color/carbon_black_38"
         android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toEndOf="@+id/onebhkButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintEnd_toEndOf="@+id/onebhkButton"
+        app:layout_constraintStart_toStartOf="@+id/onebhkButton"
+        app:layout_constraintTop_toBottomOf="@+id/onebhkButton" />
 
     <TextView
         android:id="@+id/twobhkLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="2 BHK"
+        android:textColor="@color/carbon_black_38"
         android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toEndOf="@+id/twobhkButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374" />
+        app:layout_constraintEnd_toEndOf="@+id/twobhkButton"
+        app:layout_constraintStart_toStartOf="@+id/twobhkButton"
+        app:layout_constraintTop_toBottomOf="@+id/twobhkButton" />
 
     <TextView
         android:id="@+id/threebhkLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="3 BHK"
+        android:textColor="@color/carbon_black_38"
         android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toEndOf="@+id/threebhkButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629" />
+        app:layout_constraintEnd_toEndOf="@+id/threebhkButton"
+        app:layout_constraintHorizontal_bias="0.722"
+        app:layout_constraintStart_toStartOf="@+id/threebhkButton"
+        app:layout_constraintTop_toBottomOf="@+id/threebhkButton" />
 
     <TextView
         android:id="@+id/fourbhkLabel"
-        android:layout_width="57dp"
+        android:layout_width="wrap_content"
         android:layout_height="26dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="4+ BHK"
+        android:textColor="@color/carbon_black_38"
         android:textSize="22sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.173"
-        app:layout_constraintStart_toEndOf="@+id/fourbhkButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.88" />
+        app:layout_constraintEnd_toEndOf="@+id/fourbhkButton"
+        app:layout_constraintStart_toStartOf="@+id/fourbhkButton"
+        app:layout_constraintTop_toBottomOf="@+id/fourbhkButton" />
 
 </android.support.constraint.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@+id/mainActivityRoot"
-    android:background="@color/primaryDarkColor">
+    android:background="@color/primaryColor">
 
     <ProgressBar
         android:id="@+id/mainActivityProgressBar"
@@ -21,7 +21,7 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
-        android:layout_height="41dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -62,7 +62,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="sans-serif"
         android:text="LIST A FLAT"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="sans-serif"
         android:text="RENT A FLAT"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"

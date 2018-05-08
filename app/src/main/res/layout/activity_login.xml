@@ -1,49 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryDarkColor">
+    android:background="@color/primaryColor">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/italianno_regular"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="College Broker"
-        android:textSize="50sp"
+        android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.100000024" />
 
-    <io.codetail.widget.RevealFrameLayout
-        android:visibility="visible"
-        android:id="@+id/loginLayout"
+    <com.truizlop.fabreveallayout.FABRevealLayout
+        android:id="@+id/fabRevealLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="380dp"
+        android:layout_margin="32dp"
         android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/registerRevealButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/carbon_red_a400"
+            android:scaleType="center"
+            android:src="@drawable/ic_add_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fabRevealLayout" />
+
         <carbon.widget.FrameLayout
             android:id="@+id/source"
             style="@style/carbon_CardView"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="48dp"
             android:background="@color/carbon_white"
             app:carbon_cornerRadius="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:orientation="vertical"
                 android:padding="20dp">
@@ -60,7 +81,7 @@
                         android:id="@+id/login_user_autocomplete"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-smallcaps"
+                        android:fontFamily="sans-serif"
                         android:hint="@string/name"
                         android:inputType="textEmailAddress"
                         android:textColor="@color/carbon_black_87"
@@ -78,7 +99,7 @@
                         android:id="@+id/login_pass_editText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-smallcaps"
+                        android:fontFamily="sans-serif"
                         android:hint="@string/password"
                         android:inputType="textPassword"
                         android:textColor="@color/carbon_black_87"
@@ -94,116 +115,119 @@
                     android:elevation="20dp"
                     android:shadowColor="#fff"
                     android:text="LOGIN"
+                    android:textColor="@color/white"
                     android:textSize="20sp" />
 
             </LinearLayout>
         </carbon.widget.FrameLayout>
 
         <carbon.widget.FrameLayout
-            android:visibility="invisible"
             android:id="@+id/target"
-            style="@style/carbon_CardView"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:background="@color/carbon_red_a400"
+            android:layout_margin="32dp"
+            android:background="@android:color/transparent"
+            android:visibility="invisible"
             app:carbon_cornerRadius="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:background="@android:color/transparent"
                 android:orientation="vertical"
                 android:padding="20dp">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/register_user"
+                <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:id="@+id/register_user"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColorHint="@color/white"-->
+                <!--style="@style/WhiteTextInputLayout"-->
+                <!--app:hintTextAppearance="@style/TextAppearance.App.TextInputLayoutWhite">-->
+
+                <AutoCompleteTextView
+                    android:id="@+id/register_user_autocomplete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:textColorHint="@color/carbon_white">
+                    android:backgroundTint="@color/carbon_white_50"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/ic_email_24dp"
+                    android:hint="@string/name"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/carbon_white_50"
+                    android:textSize="20sp" />
+                <!--</android.support.design.widget.TextInputLayout>-->
 
-                    <AutoCompleteTextView
-                        android:id="@+id/register_user_autocomplete"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/name"
-                        android:inputType="textEmailAddress"
-                        android:textColor="@color/carbon_white"
-                        android:textSize="20sp" />
-                </android.support.design.widget.TextInputLayout>
+                <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:id="@+id/register_pass"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/register_pass"
+                <EditText
+                    android:id="@+id/register_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:textColorHint="@color/carbon_white">
+                    android:backgroundTint="@color/carbon_white_50"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/ic_vpn_key_24dp"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/carbon_white_50"
+                    android:textSize="20sp" />
+                <!--</android.support.design.widget.TextInputLayout>-->
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/password"
-                        android:inputType="textPassword"
-                        android:textColor="@color/carbon_black_54"
-                        android:textSize="20sp" />
-                </android.support.design.widget.TextInputLayout>
+                <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:id="@+id/register_pass_rep"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="20dp">-->
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/register_pass_rep"
+                <EditText
+                    android:id="@+id/register_conf_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:textColorHint="@color/carbon_white">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/password"
-                        android:inputType="textPassword"
-                        android:textColor="@color/carbon_white"
-                        android:textSize="20sp" />
-                </android.support.design.widget.TextInputLayout>
+                    android:backgroundTint="@color/carbon_white_50"
+                    android:drawablePadding="16dp"
+                    android:drawableStart="@drawable/ic_vpn_key_24dp"
+                    android:hint="@string/confirm_hint"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/carbon_white_50"
+                    android:textSize="20sp" />
+                <!--</android.support.design.widget.TextInputLayout>-->
 
                 <Button
+                    android:id="@+id/registerButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/carbon_white"
+                    android:background="@color/white"
                     android:text="REGISTER"
                     android:textColor="@color/carbon_black"
                     android:textSize="20sp" />
 
-                <Button
-                    android:id="@+id/backToLoginButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@color/carbon_white"
-                    android:layout_marginTop="16dp"
-                    android:text="BACK TO LOGIN"
-                    android:textColor="@color/carbon_black"
-                    android:textSize="20sp" />
+                <!--<Button-->
+                <!--android:id="@+id/backToLoginButton"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:layout_marginTop="16dp"-->
+                <!--android:background="@color/carbon_red_a400"-->
+                <!--android:text="BACK TO LOGIN"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="20sp" />-->
 
             </LinearLayout>
         </carbon.widget.FrameLayout>
 
-    </io.codetail.widget.RevealFrameLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/registerRevealButton"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:src="@drawable/ic_add_white_24dp"
-        android:scaleType="center"
-        android:layout_gravity="bottom|center"
-        android:backgroundTint="@color/carbon_red_a400"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"/>
+    </com.truizlop.fabreveallayout.FABRevealLayout>
 
 
 </android.support.constraint.ConstraintLayout>

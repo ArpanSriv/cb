@@ -3,11 +3,11 @@ package com.arpan.collegebroker
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import com.arpan.collegebroker.fragment.allflats.IconFragment
 
-class ViewPagerAdapter(val fragments: ArrayList<Fragment>, fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager) {
+class ViewPagerAdapter(private val fragments: ArrayList<IconFragment>, fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager) {
 
-
-
+/*
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
             0 -> "All Flats"
@@ -15,6 +15,7 @@ class ViewPagerAdapter(val fragments: ArrayList<Fragment>, fragmentManager: Frag
             else -> "Lol"
         }
     }
+*/
 
     override fun getItem(position: Int): Fragment {
         return fragments[position]

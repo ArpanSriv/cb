@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.createflat.EndFragment">
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/uploadingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Uploading..."
+        android:textColor="@color/carbon_black_54"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/progressBar" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/completeFab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/endLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Details"
+        android:textColor="@color/carbon_black_54"
+        android:textSize="28sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <LinearLayout
+        android:id="@+id/finalDetailsHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/endLabel">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/typeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TYPE"
+
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/typeValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/typeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Flat"
+                android:textColor="@color/carbon_red_a400"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/typeLabel"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/typeLabel"
+                app:layout_constraintTop_toBottomOf="@+id/typeLabel" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/sizeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SIZE"
+
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/sizeValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sizeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="2 BHK"
+                android:textColor="@color/carbon_red_a400"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/sizeLabel"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/sizeLabel"
+                app:layout_constraintTop_toBottomOf="@+id/sizeLabel" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/locationLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LOCATION"
+
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/locationValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/locationValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Pashan, Sus, Pune, Maharashtra"
+                android:textColor="@color/carbon_red_a400"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/locationLabel"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/locationLabel"
+                app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/furnishingLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FURNITURE"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/furnishingValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/furnishingValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Furnished (2 Sofa, 1 Bed, 1 Fridge)"
+                android:textColor="@color/carbon_red_a400"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/furnishingLabel"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/furnishingLabel"
+                app:layout_constraintTop_toBottomOf="@+id/furnishingLabel" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/detailsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DETAILS"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/detailsValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/detailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="4 Photo(s) and 2 Contact(s) uploaded"
+                android:textColor="@color/carbon_red_a400"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/detailsLabel"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/detailsLabel"
+                app:layout_constraintTop_toBottomOf="@+id/detailsLabel" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/descriptionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DESCRIPTION"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/descriptionValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/descriptionValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="A well furnished flat with all the modern amenities."
+                android:textColor="@color/carbon_red_a400"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/descriptionLabel"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/descriptionLabel"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionLabel" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/costLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PRICE"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/costValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/costValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="18,000 per month"
+                android:textColor="@color/carbon_red_a400"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/costLabel"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/costLabel"
+                app:layout_constraintTop_toBottomOf="@+id/costLabel" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/completeFab"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:backgroundTint="@color/carbon_red_a400"
+        android:scaleType="center"
+        android:src="@drawable/ic_done_white_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,16 +1,25 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/secondaryColor</item>
+
     </style>
 
     <style name="carbon_CardView_custom" parent="CardView">
 
+    </style>
 
+    <style name="WhiteTextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/white</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
     </style>
 
     <style name="Widget" />
@@ -39,12 +48,12 @@
     </style>
 
     <!--Custom-->
-    <style name="MaterialLoginTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-    </style>
+    <style name="MaterialLoginTheme" parent="Theme.AppCompat.Light.DarkActionBar"></style>
 
     <style name="MaterialLoginTheme.SelectableItemTheme">
         <item name="colorControlHighlight">@color/material_login_register_color</item>
     </style>
+
     <style name="MaterialLoginTheme.SelectableItemBackground">
         <item name="android:theme">@style/MaterialLoginTheme.SelectableItemTheme</item>
         <item name="android:background">?attr/selectableItemBackground</item>
@@ -74,6 +83,20 @@
     <style name="MaterialLoginTheme.TextAppearanceRegisterError" parent="android:Widget.TextView">
         <item name="android:textColor">@color/material_login_register_error_color</item>
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextAppearance.App.TextInputLayoutWhite" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="WhiteTextInputLayout">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.App.TextInputLayoutBlack" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/white</item>
     </style>
 
 </resources>

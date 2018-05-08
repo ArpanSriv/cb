@@ -16,7 +16,15 @@ class CreateFlatWelcomeFragment : Fragment(), CreateFlatActivity.SubmitCallbackL
         return inflater.inflate(R.layout.fragment_create_flat_welcome, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (activity as CreateFlatActivity).submitCallbackListener = this
+    }
+
     override fun submitFlatDetails(progress: Int): Any = "Null?"
 
     override fun getProgress() = 0
+
+    override fun reset() {}
+
+    override fun validateInputs() = true
 }

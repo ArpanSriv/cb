@@ -38,7 +38,8 @@ class CreateFlatPhotoGalleryFragment : Fragment(), CreateFlatActivity.SubmitCall
     private lateinit var mContactsAdapter: ContactsAdapter
     private val imageUris = ArrayList<Uri>()
     private val contacts = ArrayList<Contact>()
-
+    private var initialStateChanged_Photos = false
+    var initialStateChanged_Contacts = false
     private val CONTACT_PERMISSION_CODE = 99
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -46,7 +47,10 @@ class CreateFlatPhotoGalleryFragment : Fragment(), CreateFlatActivity.SubmitCall
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        uploadPhotosFab.setOnClickListener {
+
+        ((activity) as CreateFlatActivity).submitCallbackListener = this
+        uploadPhotosButton.setOnClickListener {
+            initialStateChanged_Photos = true
             val intent = Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_GET_CONTENT
@@ -54,14 +58,13 @@ class CreateFlatPhotoGalleryFragment : Fragment(), CreateFlatActivity.SubmitCall
 //            TODO("UPLOAD")
         }
 
-        uploadContactsFab.setOnClickListener {
+        uploadContactsButton.setOnClickListener {
+            initialStateChanged_Contacts = true
             getPermissions()
 
             val contactPickerIntent = Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI)
             startActivityForResult(contactPickerIntent, RESULT_PICK_CONTACT)
         }
-
-
 
         initImageWidth()
 
@@ -99,10 +102,10 @@ class CreateFlatPhotoGalleryFragment : Fragment(), CreateFlatActivity.SubmitCall
     }
 
     override fun submitFlatDetails(progress: Int): Any {
-        return "l"
+        return kotlin.Pair(imageUris, contacts)
     }
 
-    override fun getProgress() = 4
+    override fun getProgress() = 5
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -142,14 +145,14 @@ class CreateFlatPhotoGalleryFragment : Fragment(), CreateFlatActivity.SubmitCall
             cursor!!.moveToFirst()
             // column index of the phone number
             val phoneIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
-            // column index of the contact name
+            // column index of the contact location
             val nameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
 
             val phoneNo = cursor.getString(phoneIndex)
             val name = cursor.getString(nameIndex)
             val picUri = getPhotoUri(fetchContactIdFromPhoneNumber(phoneNo))
 
-            val contact = Contact(name, phoneNo, picUri)
+            val contact = Contact(name, phoneNo, picUri.toString())
             contacts.add(contact)
             mContactsAdapter.notifyDataSetChanged()
 
@@ -212,4 +215,14 @@ class CreateFlatPhotoGalleryFragment : Fragment(), CreateFlatActivity.SubmitCall
         return Uri.withAppendedPath(person,
                 ContactsContract.Contacts.Photo.CONTENT_DIRECTORY)
     }
+
+    override fun reset() {
+        imageUris.clear()
+        contacts.clear()
+
+        mContactsAdapter.notifyDataSetChanged()
+        mPhotoGalleryAdapter.notifyDataSetChanged()
+    }
+
+    override fun validateInputs() = initialStateChanged_Contacts and initialStateChanged_Photos
 }

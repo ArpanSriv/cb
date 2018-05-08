@@ -1,14 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryColor"
     tools:context=".fragment.createflat.CreateFlatWelcomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/createFlatTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:padding="16dp"
+        android:elevation="0dp"
+        android:text="CREATE A FLAT"
+        android:textColor="@color/carbon_black_38"
+        android:textSize="32sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <LinearLayout
+        app:layout_constraintVertical_bias="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createFlatTitle">
+
+        <moe.feng.common.stepperview.VerticalStepperItemView
+            android:id="@+id/stepper_0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:step_activated_color="@color/carbon_red_a400"
+            app:step_index="1"
+            app:step_line_color="@color/carbon_red_a400"
+            app:step_normal_color="@color/carbon_red_a400"
+            app:step_state="normal"
+            app:step_summary="Select Flat Type"
+            app:step_title="Step 1" />
+
+        <moe.feng.common.stepperview.VerticalStepperItemView
+            android:id="@+id/stepper_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:step_activated_color="@color/carbon_red_a400"
+            app:step_index="2"
+            app:step_line_color="@color/carbon_red_a400"
+            app:step_normal_color="@color/carbon_red_a400"
+            app:step_state="normal"
+            app:step_summary="Select Flat Size"
+            app:step_title="Step 2" />
+
+        <moe.feng.common.stepperview.VerticalStepperItemView
+            android:id="@+id/stepper_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:step_activated_color="@color/carbon_red_a400"
+            app:step_index="3"
+            app:step_line_color="@color/carbon_red_a400"
+            app:step_normal_color="@color/carbon_red_a400"
+            app:step_state="normal"
+            app:step_summary="Select Flat Location"
+            app:step_title="Step 3" />
+
+        <moe.feng.common.stepperview.VerticalStepperItemView
+            android:id="@+id/stepper_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:step_activated_color="@color/carbon_red_a400"
+            app:step_index="4"
+            app:step_title="Step 4"
+            app:step_summary="Upload Photos and Contacts"
+            app:step_line_color="@color/carbon_red_a400"
+            app:step_normal_color="@color/carbon_red_a400"
+            app:step_state="normal" />
+
+        <moe.feng.common.stepperview.VerticalStepperItemView
+            android:id="@+id/stepper_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:step_activated_color="@color/carbon_red_a400"
+            app:step_index="5"
+            app:step_title="Step 5"
+            app:step_summary="Add a description"
+            app:step_line_color="@color/carbon_red_a400"
+            app:step_normal_color="@color/carbon_red_a400"
+            app:step_state="normal" />
+
+        <moe.feng.common.stepperview.VerticalStepperItemView
+            android:id="@+id/stepper_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:step_activated_color="@color/carbon_red_a400"
+            app:step_index="6"
+            app:step_title="Done"
+            app:step_summary="Done"
+            app:step_line_color="@android:color/transparent"
+            app:step_normal_color="@color/carbon_red_a400"
+            app:step_state="normal" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

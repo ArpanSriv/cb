@@ -1,17 +1,24 @@
 package com.arpan.collegebroker
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.net.Uri
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import kotlinx.android.synthetic.main.item_flat_listing.view.*
-import android.content.ClipData.Item
 
 
+class FlatsAdapter(val context: Context?, val flats: ArrayList<Flat>) : RecyclerView.Adapter<FlatsAdapter.FlatViewHolder>() {
 
-class FlatsAdapter(val context: Context?, val flats: ArrayList<Flat>): RecyclerView.Adapter<FlatsAdapter.FlatViewHolder>() {
+    interface FavouriteListener {
+        fun toggleFavourite(flatId: String, newState: Boolean)
+    }
+
+    var favouriteListener: FavouriteListener? = null
+    var favouriteIdsList = ArrayList<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlatViewHolder {
         return FlatViewHolder(LayoutInflater.from(context).inflate(R.layout.item_flat_listing, parent, false))
@@ -20,7 +27,23 @@ class FlatsAdapter(val context: Context?, val flats: ArrayList<Flat>): RecyclerV
     override fun getItemCount() = flats.size
 
     override fun onBindViewHolder(holder: FlatViewHolder, position: Int) {
-        holder.bindData(flats[position].name, flats[position].description, flats[position].price)
+        try {
+            holder.bindData(
+                    flats[position].location,
+                    flats[position].description,
+                    flats[position].price.toInt(),
+                    Uri.parse(flats[position].imagesLink.first()),
+                    favouriteIdsList.contains(flats[position].flatId)
+            )
+        } catch (e: NoSuchElementException) {
+            holder.bindData(
+                    flats[position].location,
+                    flats[position].description,
+                    flats[position].price.toInt(),
+                    null,
+                    favouriteIdsList.contains(flats[position].flatId)
+            )
+        }
     }
 
     fun removeItem(position: Int) {
@@ -37,23 +60,55 @@ class FlatsAdapter(val context: Context?, val flats: ArrayList<Flat>): RecyclerV
         notifyItemInserted(position)
     }
 
-    inner class FlatViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        val viewForeground: RelativeLayout = itemView.view_foreground
+    inner class FlatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+
+        var id = ""
+//        val checkListener: (CompoundButton, Boolean) -> Unit = { _, isChecked ->
+//            if (isChecked) {
+//                if (favouriteListener != null) {
+//                    favouriteListener!!.toggleFavourite(flats[adapterPosition].flatId, isChecked)
+//                }
+//                itemView.favToggleButton.setBackgroundDrawable(ContextCompat.getDrawable(context!!, R.drawable.fav_filled))
+//            } else {
+//                if (favouriteListener != null) {
+////                        favouriteListener!!.toggleFavourite(false)
+//                }
+//                itemView.favToggleButton.setBackgroundDrawable(ContextCompat.getDrawable(context!!, R.drawable.fav_black))
+//            }
+//        }
 
         override fun onClick(v: View?) {
             //TODO
         }
 
-        fun bindData(name: String, description: String, price: Int) {
+        @SuppressLint("SetTextI18n")
+        fun bindData(name: String, description: String, price: Int, mainImageUri: Uri?, isFavourite: Boolean) {
+            val formattedPrice = priceFormatter(price.toString())
+
             itemView.name.text = name
             itemView.description.text = description
-            itemView.price.text = price.toString()
+            itemView.price.text = "₹ $formattedPrice"
+
+            GlideApp
+                    .with(context!!)
+                    .load(mainImageUri)
+                    .placeholder(R.drawable.home_red)
+                    .into(itemView.thumbnail)
+//
+//
+//            itemView.favToggleButton.setOnCheckedChangeListener(null)
+//            itemView.favToggleButton.isChecked = isFavourite
+//            itemView.favToggleButton.setOnCheckedChangeListener(checkListener)
         }
 
         init {
             itemView.setOnClickListener(this)
-        }
+            itemView.favToggleButton.isChecked = false
+            itemView.favToggleButton.setBackgroundDrawable(ContextCompat.getDrawable(context!!, R.drawable.fav_black))
 
+//            itemView.favToggleButton.setOnCheckedChangeListener(checkListener)
+
+        }
 
 
     }

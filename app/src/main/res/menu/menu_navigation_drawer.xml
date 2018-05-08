@@ -7,7 +7,7 @@
             android:title="@string/rent_a_flat" />
         <item
             android:id="@+id/nav_list_a_flat"
-            android:icon="@android:drawable/list_selector_background"
+            android:icon="@drawable/home_red"
             android:title="@string/list_a_flat" />
         <item
             android:id="@+id/nav_logout"
