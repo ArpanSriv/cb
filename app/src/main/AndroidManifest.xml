@@ -31,7 +31,11 @@
         <activity android:name=".CreateFlatActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".AllFlatsActivity" />
-        <activity android:name=".FlatDetailsActivity"></activity>
+        <activity android:name=".FlatDetailsActivity" />
+        <activity
+            android:name=".ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

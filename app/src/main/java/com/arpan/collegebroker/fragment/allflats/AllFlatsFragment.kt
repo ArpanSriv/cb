@@ -56,11 +56,9 @@ class AllFlatsFragment : IconFragment(), FlatsAdapter.FavouriteListener {
             }
 
             override fun onChildMoved(p0: DataSnapshot?, p1: String?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onChildChanged(p0: DataSnapshot?, p1: String?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onChildAdded(dataSnapshot: DataSnapshot?, p1: String?) {
@@ -69,7 +67,6 @@ class AllFlatsFragment : IconFragment(), FlatsAdapter.FavouriteListener {
             }
 
             override fun onChildRemoved(p0: DataSnapshot?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
         })

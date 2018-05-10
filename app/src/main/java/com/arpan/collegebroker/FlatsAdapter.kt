@@ -2,6 +2,7 @@ package com.arpan.collegebroker
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
@@ -78,7 +79,9 @@ class FlatsAdapter(val context: Context?, val flats: ArrayList<Flat>) : Recycler
 //        }
 
         override fun onClick(v: View?) {
-            //TODO
+            val intent = Intent(context!!, ScrollingActivity::class.java)
+            intent.putExtra("FLAT", flats[adapterPosition])
+            context.startActivity(intent)
         }
 
         @SuppressLint("SetTextI18n")
